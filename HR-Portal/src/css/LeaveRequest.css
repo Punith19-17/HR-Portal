@@ -1,0 +1,154 @@
+/* Full screen container */
+.fullpage-container {
+  background: #f4f6f9;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e5e5e5;
+  background: #fff;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.close-btn {
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-btn:hover {
+  color: red;
+}
+
+/* Body */
+.modal-body {
+  padding: 20px;
+  flex: 1;
+}
+
+/* Fieldset */
+.fieldset {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+  background: #fff;
+}
+
+.fieldset legend {
+  font-weight: 600;
+  padding: 0 8px;
+}
+
+/* Form rows */
+.form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.form-row label {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.required {
+  color: red;
+}
+
+/* Inputs */
+.form-row input,
+.form-row select,
+.form-row textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-row textarea {
+  min-height: 70px;
+}
+
+/* Date fields */
+.date-fields {
+  display: flex;
+  gap: 20px;
+}
+
+.date-field {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.date-field span {
+  font-size: 12px;
+  margin-bottom: 4px;
+  color: #555;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.submit-btn {
+  background: #007bff;
+  border: none;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background: #d3d3d3;
+  border: none;
+  color: black;
+  padding: 8px 18px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 20px;
+}
+
+.tab {
+  cursor: pointer;
+  padding: 8px 12px;
+  position: relative;
+  font-weight: 500;
+}
+
+.tab.active {
+  color: #2a6df5; /* blue text */
+}
+
+.tab.active::after {
+  content: "";
+  display: block;
+  height: 3px;
+  background: #2a6df5; /* blue underline */
+  margin-top: 4px;
+  border-radius: 2px;
+}

@@ -1,0 +1,115 @@
+.leave-requests-container {
+  width: 100%;
+  padding: 20px;
+  background: #f8fafc;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Top Bar */
+.top-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+/* Search Month Bar */
+.search-bar {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  font-size: 13px;
+  color: #374151;
+  width: 180px; /* Small width */
+  position: relative;
+}
+
+/* Fake placeholder for month input */
+.search-bar::before {
+  content: attr(placeholder);
+  color: #6b7280;
+  position: absolute;
+  margin-left: 8px;
+}
+
+.search-bar:focus::before,
+.search-bar:valid::before {
+  content: "";
+}
+
+/* Search button */
+.search-btn {
+  background: #10b981; /* green */
+  color: white;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.2s ease-in-out;
+}
+
+.search-btn:hover {
+  background: #059669;
+}
+
+/* Add Request button */
+.add-btn {
+  background: #1d4ed8;
+  color: white;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.2s ease-in-out;
+}
+
+.add-btn:hover {
+  background: #1e40af;
+}
+
+/* Table */
+.leave-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.leave-table thead {
+  background: #f3f4f6;
+  font-weight: 600;
+}
+
+.leave-table th,
+.leave-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+.leave-table th {
+  color: #374151;
+}
+
+.leave-table tr:hover {
+  background: #f9fafb;
+}
+
+.emp-name {
+  font-weight: 600;
+  color: #111827;
+}
+
+.no-data {
+  text-align: center;
+  padding: 20px;
+  color: #6b7280;
+  font-style: italic;
+}

@@ -1,0 +1,55 @@
+.staff-leave-container {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.staff-leave-header {
+  text-align: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.staff-leave-header h1 {
+  color: #333;
+  font-size: 28px;
+  margin: 0;
+}
+
+.staff-leave-content {
+  padding: 20px;
+}
+
+.staff-leave-content h2 {
+  color: #444;
+  font-size: 22px;
+  margin-top: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.staff-leave-content h3 {
+  color: #555;
+  font-size: 18px;
+  margin: 25px 0 15px 0;
+}
+
+.staff-leave-description {
+  color: #666;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.team-members {
+  margin-left: 20px;
+}
+
+.team-members p {
+  color: #444;
+  font-size: 16px;
+  margin: 10px 0;
+}

@@ -1,0 +1,134 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f8f9fa, #e3f2fd);
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Header Styles */
+.header {
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  color: white;
+  text-align: center;
+  padding: 30px;
+  font-size: 40px;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar Styles */
+.navbar-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: white;
+  padding: 20px 20px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  display: flex;
+  gap: 15px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  padding: 10px 15px;
+  font-size: 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navbar a::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  transition: width 0.3s;
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  transform: translateX(-50%);
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+.navbar a.active {
+  color: #ff758c;
+  font-weight: bold;
+}
+
+/* Content Section Styles */
+.content-section {
+  display: flex;
+  padding: 20px 30px;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 300px;
+  gap: 25px;
+  margin: 5px 0;
+}
+
+.content-section.reverse {
+  flex-direction: row-reverse;
+}
+
+.content-info {
+  padding: 15px;
+  width: 48%;
+}
+
+.content-info h2 {
+  color: #ff758c;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.content-info p {
+  font-size: 25px;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.content-info ul {
+  padding-left: 20px;
+}
+
+.content-info li {
+  margin-bottom: 6px;
+  font-size: 20px;
+}
+
+.content-image {
+  width: 60%;
+  max-width: 550px;
+  min-width: 320px;
+  height: auto;
+  max-height: 300px;
+  min-height: 220px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.content-image:hover {
+  transform: scale(1.02);
+}
+
+/* Footer Styles */
+.footer {
+  background: linear-gradient(135deg, #222831, #393E46);
+  color: white;
+  text-align: center;
+  padding: 18px;
+  font-size: 14px;
+}
