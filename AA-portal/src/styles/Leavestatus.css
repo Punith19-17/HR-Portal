@@ -1,0 +1,219 @@
+/* ============================================================
+   Leavestatus.css — Aarya Associates Employee Portal
+   Theme: Forest Green (#0b684c) + Brand Gold (#c58f47)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+@keyframes ls-slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes ls-spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes ls-pulse {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.4); opacity: .6; }
+}
+
+/* ── Wrapper ── */
+.leave-hub-wrapper {
+  font-family: 'Outfit', sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0fdf9 0%, #e6f7f1 30%, #fffdf5 65%, #fef9ec 100%);
+  padding: 28px 32px;
+  animation: ls-slideUp 0.45s ease forwards;
+}
+
+/* ── Header ── */
+.leave-hub-header {
+  border-radius: 28px;
+  background: linear-gradient(135deg, #f0fdf9 0%, #e6f7f1 30%, #fffdf5 65%, #fef9ec 100%);
+  padding: 24px 32px;
+  margin-bottom: 22px;
+  position: relative; overflow: hidden;
+  border: 1px solid rgba(197,143,71,.18);
+  box-shadow: 0 8px 32px rgba(11,104,76,.07), 0 2px 8px rgba(197,143,71,.06);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.leave-hub-header::before {
+  content: ''; position: absolute; top: -40px; right: -20px;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(197,143,71,.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+.leave-hub-header h1 {
+  font-size: 26px; font-weight: 900; color: #1a202c; margin: 0 0 3px; letter-spacing: -.5px;
+}
+.lsh-sub { font-size: 13px; color: #718096; font-weight: 500; margin: 0; }
+
+.back-button {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 700;
+  padding: 9px 18px; border-radius: 12px; border: none; cursor: pointer;
+  background: rgba(197,143,71,.1); color: #a47230;
+  border: 1.5px solid rgba(197,143,71,.25); transition: all .2s ease;
+}
+.back-button:hover { background: rgba(197,143,71,.2); }
+
+/* ── Content wrapper ── */
+.leave-hub-content {
+  background: #fff; border-radius: 22px;
+  border: 1px solid rgba(197,143,71,.15);
+  box-shadow: 0 6px 28px rgba(11,104,76,.06); overflow: hidden;
+}
+
+/* ── Panel head (inside content) ── */
+.ls-panel-head {
+  padding: 16px 20px 12px;
+  background: linear-gradient(135deg, rgba(11,104,76,.06), rgba(197,143,71,.05));
+  border-bottom: 1px solid rgba(197,143,71,.12);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.ls-panel-left { display: flex; align-items: center; gap: 12px; }
+.ls-panel-icon {
+  width: 38px; height: 38px; border-radius: 12px; flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(11,104,76,.1), rgba(26,58,92,.08));
+  border: 1px solid rgba(11,104,76,.12);
+  display: flex; align-items: center; justify-content: center;
+  color: #0b684c; font-size: 18px;
+}
+.ls-panel-title { font-size: 15px; font-weight: 800; color: #1a202c; margin: 0 0 2px; }
+.ls-panel-sub   { font-size: 11px; color: #718096; margin: 0; }
+.ls-count-badge {
+  display: inline-flex; align-items: center; padding: 4px 12px;
+  background: rgba(11,104,76,.1); border: 1px solid rgba(11,104,76,.15);
+  border-radius: 20px; font-size: 11px; font-weight: 800; color: #0b684c;
+}
+
+/* ── Loading spinner ── */
+.loading-spinner {
+  border: 3px solid rgba(11,104,76,.12);
+  border-top: 3px solid #0b684c;
+  border-radius: 50%; width: 44px; height: 44px;
+  animation: ls-spin 0.8s linear infinite;
+  margin: 60px auto;
+}
+
+/* ── Error ── */
+.error-message {
+  color: #dc2626; text-align: center; padding: 28px;
+  font-size: 14px; font-weight: 700;
+  background: rgba(239,68,68,.06); border-radius: 14px;
+  border: 1.5px solid rgba(239,68,68,.15); margin: 20px;
+}
+
+/* ── No leaves ── */
+.no-leaves {
+  text-align: center; padding: 50px 30px; color: #718096;
+}
+.no-leaves p { font-size: 15px; font-weight: 600; margin: 0 0 16px; }
+
+.refresh-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 700;
+  padding: 10px 22px; border-radius: 12px; border: none; cursor: pointer;
+  background: linear-gradient(135deg, #0b684c, #1a3a5c); color: #fff;
+  box-shadow: 0 4px 14px rgba(11,104,76,.25); transition: all .2s ease;
+}
+.refresh-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(11,104,76,.35); }
+
+/* ── Table scroll ── */
+.leaves-table-container {
+  overflow-x: auto; max-height: 500px; overflow-y: auto;
+}
+.leaves-table-container::-webkit-scrollbar       { width: 5px; height: 5px; }
+.leaves-table-container::-webkit-scrollbar-track { background: rgba(0,0,0,.03); border-radius: 4px; }
+.leaves-table-container::-webkit-scrollbar-thumb { background: rgba(11,104,76,.28); border-radius: 4px; }
+
+/* ── Table ── */
+.leaves-table {
+  width: 100%; border-collapse: separate; border-spacing: 0; font-size: 12px;
+}
+.leaves-table thead th {
+  padding: 10px 16px; position: sticky; top: 0; z-index: 2;
+  background: linear-gradient(135deg, rgba(11,104,76,.05), rgba(197,143,71,.03));
+  font-size: 9px; font-weight: 800; color: #a0aec0;
+  text-transform: uppercase; letter-spacing: .5px; white-space: nowrap;
+  border-bottom: 1px solid rgba(197,143,71,.1);
+}
+.leaves-table tbody tr { transition: background .15s; }
+.leaves-table tbody tr:hover td { background: rgba(11,104,76,.025); }
+.leaves-table tbody td {
+  padding: 13px 16px; border-bottom: 1px solid rgba(0,0,0,.04);
+  color: #2d3748; font-weight: 600; vertical-align: middle; white-space: nowrap;
+}
+.leaves-table tr:last-child td { border-bottom: none; }
+
+/* Employee cell */
+.ls-emp { display: flex; align-items: center; gap: 10px; }
+.ls-av {
+  width: 32px; height: 32px; border-radius: 10px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 800; color: #fff;
+  background: linear-gradient(135deg, #0b684c, #1a3a5c);
+}
+.ls-ename { font-size: 12px; font-weight: 700; color: #1a202c; }
+.ls-eid   { font-size: 10px; font-weight: 600; color: #a0aec0; }
+
+/* Reason cell */
+.reason-cell {
+  max-width: 180px; white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis; color: #718096;
+}
+
+/* Status badge */
+.status-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 5px 12px; border-radius: 20px; font-size: 11px; font-weight: 700;
+}
+.ls-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  animation: ls-pulse 2.2s ease-in-out infinite;
+}
+.ls-approved { background: rgba(16,185,129,.1);  color: #059669; }
+.ls-approved .ls-dot { background: #10b981; }
+.ls-pending  { background: rgba(245,158,11,.12); color: #b45309; }
+.ls-pending  .ls-dot { background: #f59e0b; }
+.ls-rejected { background: rgba(239,68,68,.1);   color: #dc2626; }
+.ls-rejected .ls-dot { background: #ef4444; }
+
+/* View letter link */
+.view-letter {
+  display: inline-flex; align-items: center; gap: 4px;
+  color: #0b684c; text-decoration: none; font-weight: 700; font-size: 11px;
+  padding: 4px 10px; background: rgba(11,104,76,.08);
+  border-radius: 8px; transition: all .2s ease;
+}
+.view-letter:hover { background: rgba(11,104,76,.16); }
+
+/* ── Pagination ── */
+.pagination-controls {
+  display: flex; justify-content: center; align-items: center; gap: 14px;
+  padding: 16px 20px; border-top: 1px solid rgba(197,143,71,.1);
+}
+.pagination-controls button {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 700;
+  padding: 8px 18px; border-radius: 12px; border: none; cursor: pointer;
+  background: linear-gradient(135deg, #0b684c, #1a3a5c); color: #fff;
+  box-shadow: 0 3px 10px rgba(11,104,76,.2); transition: all .2s ease;
+}
+.pagination-controls button:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(11,104,76,.3); }
+.pagination-controls button:disabled {
+  background: rgba(0,0,0,.06); color: #a0aec0;
+  cursor: not-allowed; box-shadow: none;
+}
+.pagination-controls span {
+  font-size: 12px; font-weight: 700; color: #718096;
+  background: rgba(197,143,71,.08); border: 1px solid rgba(197,143,71,.15);
+  padding: 7px 16px; border-radius: 10px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .leave-hub-wrapper  { padding: 16px; }
+  .leave-hub-header   { flex-direction: column; gap: 14px; padding: 20px; }
+  .leaves-table td, .leaves-table th { padding: 10px 12px; font-size: 11px; }
+}

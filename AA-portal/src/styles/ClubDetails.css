@@ -1,0 +1,33 @@
+.club-details {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.back-btn {
+  background: #f0f0f0;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.club-details h1 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.club-info p {
+  font-size: 16px;
+  margin: 6px 0;
+}
+
+.club-details h3 {
+  margin-top: 20px;
+}
+
+.club-details ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  font-size: 15px;
+}

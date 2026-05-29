@@ -1,0 +1,1075 @@
+/* ==========================================================
+   AARYA ASSOCIATES - ELITE EDITORIAL WORKSPACE GATEWAY STYLING
+   File: Home.css (Luxury Corporate Champagne-Gold & Obsidian Theme)
+   ========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+  /* Luxury Corporate Palette (McKinsey / BCG Style) */
+  --primary-color: #0f172a;         /* Deep Obsidian Charcoal */
+  --primary-hover: #1e293b;
+  --accent-gold: #b45309;           /* Warm Champagne Amber-Gold */
+  --accent-gold-light: #fef3c7;     /* Light Champagne Tint */
+  --accent-blue: #1d4ed8;           /* Subtle Corporate Blue */
+  --accent-light: #fafaf9;          /* Warm Ivory Soft White */
+  
+  --success-color: #0f766e;         /* Teal Success */
+  --success-light: #f0fdfa;
+  --text-main: #0f172a;             /* Obsidian Dark */
+  --text-secondary: #475569;        /* Slate Charcoal */
+  --text-muted: #64748b;            /* Soft Muted Slate */
+  --border-light: #e2e8f0;          /* Crisp slate border */
+  
+  /* Precision Luxury Shadows */
+  --shadow-sm: 0 1px 3px rgba(180, 83, 9, 0.02);
+  --shadow-md: 0 4px 14px rgba(180, 83, 9, 0.03);
+  --shadow-premium: 0 25px 60px rgba(15, 23, 42, 0.06);
+  --shadow-gold-glow: 0 12px 30px rgba(180, 83, 9, 0.08);
+  
+  --transition-normal: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portal-landing {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  background-color: #ffffff;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* ENABLES NATURAL VERTICAL SCROLLING FOR THE WHOLE PAGE */
+  position: relative;
+}
+
+.portal-landing * {
+  box-sizing: border-box;
+}
+
+/* ==========================================================
+   2. Split Hero Grid Structure (No Screen Height Lockout)
+   ========================================================== */
+.hero-split-container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh; /* Takes full screen on load */
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* Left Branding & Portal Entry Pane (58% Width) */
+.brand-pane {
+  width: 58%;
+  padding: 50px 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #ffffff 0%, #fafaf9 50%, #f6f5f0 100%);
+  z-index: 10;
+  position: relative;
+}
+
+/* Right Full-Bleed Corporate Visual Pane (42% Width) */
+.visual-pane {
+  width: 42%;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.visual-pane::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.3) 0%, rgba(15, 23, 42, 0.6) 100%);
+  z-index: 1;
+}
+
+/* ==========================================================
+   3. Left Pane Brand Elements & Slide-In Animations
+   ========================================================== */
+.brand-logo-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  animation: slideFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  padding: 6px 12px;
+  margin-left: -12px;
+  border-radius: 12px;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+}
+
+.brand-logo:hover {
+  transform: translateY(-2px) scale(1.02) perspective(1000px) rotateX(8deg);
+}
+
+.brand-logo::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.35) 45%,
+    rgba(180, 83, 9, 0.5) 50%,
+    rgba(255, 255, 255, 0.35) 55%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  animation: slowBrandShine 8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes slowBrandShine {
+  0% {
+    left: -150%;
+  }
+  30% {
+    left: 180%;
+  }
+  100% {
+    left: 180%;
+  }
+}
+
+.logo-wrapper {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-gold) 100%);
+  padding: 10px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(180, 83, 9, 0.15);
+  transition: var(--transition-normal);
+}
+
+.brand-logo:hover .logo-wrapper {
+  transform: scale(1.05) rotate(2deg);
+}
+
+.logo-icon {
+  color: #ffffff;
+}
+
+.brand-name {
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #0f172a 30%, #b45309 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Header utility navigation */
+.header-nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-link {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--accent-gold);
+}
+
+/* Editorial Hero Callout */
+.editorial-hero-content {
+  margin: 40px 0;
+}
+
+.editorial-tagline {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+  display: block;
+  animation: slideFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+/* Heading Typography Update: Cobalt-Indigo Gradients Applied to Both Base & Highlight Letters */
+.editorial-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 45px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.5px;
+  animation: slideFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+/* Base editorial words (Strategic, Precision): Deep Slate-to-Cobalt Blue */
+.editorial-title .base-word {
+  background: linear-gradient(135deg, #0f172a 20%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Highlighted words (Capital, Workspaces): Unified with the Cobalt Blue gradient */
+.editorial-title em {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  font-style: italic;
+  background: linear-gradient(135deg, #0f172a 20%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.editorial-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 520px;
+  margin: 0 0 32px 0;
+  animation: slideFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+/* Premium Workspace Entrance Gateway Cards */
+.gateway-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  animation: slideFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+}
+
+.gateway-action-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 22px;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 135px;
+  box-shadow: var(--shadow-sm);
+}
+
+.gateway-action-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-premium), var(--shadow-gold-glow);
+  border-color: var(--accent-gold);
+  background: linear-gradient(135deg, #ffffff 0%, rgba(180, 83, 9, 0.01) 100%);
+}
+
+/* Employee Workspace & Admin Command Room Headers: Styled with harmonized Slate-to-Cobalt gradient */
+.gateway-action-card h3 {
+  font-size: 15.5px;
+  font-weight: 800;
+  margin: 0 0 6px 0;
+  transition: var(--transition-fast);
+  background: linear-gradient(135deg, #475569 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.gateway-action-card p {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.gateway-card-arrow {
+  margin-top: 12px;
+  font-size: 12.5px;
+  font-weight: 800;
+  color: var(--accent-gold);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition-fast);
+}
+
+.gateway-action-card:hover .gateway-card-arrow {
+  gap: 10px;
+  transform: translateX(2px);
+}
+
+/* ==========================================================
+   4. Right Pane Glassmorphic Intranet Bulletin Card
+   ========================================================== */
+.glass-bulletin-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 24px;
+  padding: 24px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.15);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: zoomFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.bulletin-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(11, 15, 25, 0.06);
+  padding-bottom: 12px;
+}
+
+/* Associate bulletins label: Styled with harmonized Slate-to-Cobalt gradient */
+.bulletin-label {
+  font-size: 11.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #475569 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.live-time-ticker {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--accent-gold);
+  background-color: var(--accent-gold-light);
+  padding: 4px 10px;
+  border-radius: 50px;
+  font-variant-numeric: tabular-nums;
+  border: 1px solid rgba(180, 83, 9, 0.15);
+}
+
+/* Elite Consulting Spotlight Card */
+.spotlight-widget {
+  background: linear-gradient(135deg, rgba(180, 83, 9, 0.04) 0%, rgba(180, 83, 9, 0.01) 100%);
+  border-left: 3px solid var(--accent-gold);
+  border-radius: 4px 12px 12px 4px;
+  padding: 14px 16px;
+  transition: var(--transition-normal);
+  border-top: 1px solid rgba(180, 83, 9, 0.05);
+  border-right: 1px solid rgba(180, 83, 9, 0.05);
+  border-bottom: 1px solid rgba(180, 83, 9, 0.05);
+}
+
+.spotlight-widget:hover {
+  transform: translateX(2px);
+  background: linear-gradient(135deg, rgba(180, 83, 9, 0.06) 0%, rgba(180, 83, 9, 0.02) 100%);
+}
+
+.spotlight-title {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 6px;
+}
+
+.spotlight-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Bulletins News Items */
+.bulletin-news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.news-item {
+  display: flex;
+  gap: 12px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 10px;
+  transition: var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.news-item:hover {
+  background-color: rgba(180, 83, 9, 0.04);
+  border-color: rgba(180, 83, 9, 0.08);
+}
+
+.news-icon-wrapper {
+  background-color: var(--accent-gold-light);
+  color: var(--accent-gold);
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: var(--transition-fast);
+}
+
+.news-item:hover .news-icon-wrapper {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  transform: rotate(15deg);
+}
+
+/* Summer Shift Timing Adjustments & Updated Leave Policy: Styled with harmonized Slate-to-Cobalt gradient */
+.news-details h4 {
+  font-size: 12.5px;
+  font-weight: 800;
+  margin: 0 0 2px 0;
+  background: linear-gradient(135deg, #475569 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.news-details p {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Upcoming Holidays Widget styling (Updated with Slate & Cobalt Blue Visual Theme) */
+.holiday-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.holiday-item {
+  background-color: rgba(15, 23, 42, 0.03);
+  padding: 8px 10px;
+  border-radius: 8px;
+  border-left: 3px solid #475569; /* Elegant Slate Grey Left Border */
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-fast);
+}
+
+.holiday-item:hover {
+  transform: translateY(-1px);
+  background-color: rgba(59, 130, 246, 0.05); /* Soft cobalt blue background hover tint */
+  border-left-color: #3b82f6; /* Transforms border to Cobalt Blue on Hover */
+}
+
+/* Christmas is marked with a distinctive Cobalt Blue Left Border */
+.holiday-item.emerald {
+  border-left-color: #3b82f6;
+}
+
+.holiday-item.emerald:hover {
+  border-left-color: #2563eb; /* Sapphire border on hover */
+}
+
+.holiday-date {
+  font-size: 9.5px;
+  font-weight: 800;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* Gandhi Jayanti & Christmas names styled with the harmonized Slate-to-Cobalt gradient */
+.holiday-name {
+  font-size: 11.5px;
+  font-weight: 800;
+  margin-top: 2px;
+  background: linear-gradient(135deg, #475569 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* ==========================================================
+   5. Below-The-Fold: Payroll & GST Accounting Advisory Hub
+   ========================================================== */
+.advisory-services-section {
+  padding: 100px 80px;
+  background: linear-gradient(180deg, #fafaf9 0%, #ffffff 50%, #f6f5f0 100%);
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.advisory-title-wrapper {
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 680px;
+}
+
+.advisory-tagline {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+/* Below fold title gradients: Unified to the gorgeous Cobalt Blue */
+.advisory-main-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.5px;
+}
+
+.advisory-main-title .base-word {
+  background: linear-gradient(135deg, #0f172a 20%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.advisory-main-title em {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 400;
+  font-style: italic;
+  background: linear-gradient(135deg, #0f172a 20%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.advisory-subtitle {
+  font-size: 15.5px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.advisory-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.advisory-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border-light);
+  border-top: 4px solid var(--accent-gold);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  /* 3D Perspective Animation parameters */
+  opacity: 0;
+  transform: perspective(1200px) rotateY(-12deg) translateY(60px) scale(0.95);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1.05s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              box-shadow 0.5s ease;
+}
+
+.advisory-card.teal-top {
+  border-top-color: var(--success-color);
+  /* Right 3D Perspective parameter */
+  transform: perspective(1200px) rotateY(12deg) translateY(60px) scale(0.95);
+}
+
+.advisory-card:hover {
+  transform: translateY(-8px) scale(1.01) !important;
+  box-shadow: var(--shadow-premium), 0 20px 40px rgba(15, 23, 42, 0.05);
+}
+
+/* Trigger classes when visible */
+.advisory-card.animate-scroll-payroll {
+  opacity: 1;
+  transform: perspective(1200px) rotateY(0) translateY(0) scale(1);
+}
+
+.advisory-card.teal-top.animate-scroll-gst {
+  opacity: 1;
+  transform: perspective(1200px) rotateY(0) translateY(0) scale(1);
+}
+
+.advisory-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.advisory-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: var(--accent-gold-light);
+  color: var(--accent-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.advisory-card.teal-top .advisory-icon-wrapper {
+  background-color: var(--success-light);
+  color: var(--success-color);
+}
+
+.advisory-card:hover .advisory-icon-wrapper {
+  transform: scale(1.08) rotate(4deg);
+}
+
+/* Card titles styled with the gorgeous Cobalt Blue gradient */
+.advisory-card-header h3 {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0;
+  background: linear-gradient(135deg, #0f172a 20%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.advisory-card-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0 0 28px 0;
+  flex-grow: 1;
+}
+
+.advisory-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.advisory-features-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+/* Bullet list text elements: Styled with harmonized Slate-to-Cobalt gradient */
+.advisory-features-list li span {
+  background: linear-gradient(135deg, #475569 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.advisory-check-icon {
+  color: var(--accent-gold);
+}
+
+.advisory-card.teal-top .advisory-check-icon {
+  color: var(--success-color);
+}
+
+.advisory-card-action {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--accent-gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.advisory-card.teal-top .advisory-card-action {
+  color: var(--success-color);
+}
+
+.advisory-card-action:hover {
+  gap: 10px;
+}
+
+/* ==========================================================
+   6. Detailed Corporate Footer (At Bottom of Scroll)
+   ========================================================== */
+.editorial-footer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 60px auto 0 auto;
+  border-top: 1px solid var(--border-light);
+  padding: 32px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.footer-nav {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-nav span {
+  cursor: pointer;
+  transition: var(--transition-fast);
+  font-weight: 700;
+}
+
+.footer-nav span:hover {
+  color: var(--accent-gold);
+}
+
+/* ==========================================================
+   7. Interactive Notice Modal
+   ========================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(11, 15, 25, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease both;
+}
+
+.modal-card {
+  background-color: #ffffff;
+  width: 90%;
+  max-width: 480px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-premium);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  position: relative;
+  animation: scaleUpIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.modal-header-banner {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+  color: #ffffff;
+  padding: 20px 24px;
+  position: relative;
+}
+
+.modal-header-banner h3 {
+  margin: 0;
+  font-size: 16.5px;
+  font-weight: 800;
+}
+
+.modal-header-banner p {
+  margin: 4px 0 0 0;
+  font-size: 11px;
+  opacity: 0.85;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #ffffff;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+.modal-notice-content {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.notice-meta-tag {
+  display: inline-block;
+  background-color: var(--accent-gold-light);
+  color: var(--accent-gold);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  margin-top: 16px;
+}
+
+/* ==========================================================
+   8. Responsive Adaptations
+   ========================================================== */
+@media screen and (max-width: 1024px) {
+  .hero-split-container {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .brand-pane {
+    width: 100%;
+    height: auto;
+    padding: 40px 24px;
+  }
+  
+  .visual-pane {
+    width: 100%;
+    height: auto;
+    min-height: 480px;
+    padding: 40px 24px;
+  }
+
+  .advisory-services-section {
+    padding: 60px 24px;
+  }
+
+  .advisory-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .editorial-title {
+    font-size: 34px;
+  }
+  .editorial-desc {
+    font-size: 14.5px;
+  }
+  .gateway-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .advisory-main-title {
+    font-size: 30px;
+  }
+  .editorial-footer {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
+
+/* ==========================================================
+   9. Staggered Core Keyframe Animations
+   ========================================================== */
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUpIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ==========================================================
+   10. Inactivity Nudge - Soft Ambient Glow Pulses
+   ========================================================== */
+.brand-logo.nudge-active {
+  animation: logoHeartbeat 3.2s ease-in-out infinite;
+}
+
+@keyframes logoHeartbeat {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(180, 83, 9, 0.15);
+  }
+}
+
+.gateway-action-card.nudge-active {
+  animation: visualBeaconNudge 3.2s ease-in-out infinite;
+  border-color: rgba(180, 83, 9, 0.35) !important;
+  background: linear-gradient(135deg, #ffffff 0%, rgba(180, 83, 9, 0.015) 100%) !important;
+}
+
+@keyframes visualBeaconNudge {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    box-shadow: var(--shadow-sm);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.015);
+    box-shadow: var(--shadow-premium), 0 0 25px rgba(180, 83, 9, 0.16);
+    border-color: var(--accent-gold) !important;
+  }
+}
+
+/* ==========================================================
+   11. Workspace Orientation Toast Guide Bubble
+   ========================================================== */
+.orientation-nudge-bubble {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(180, 83, 9, 0.22);
+  border-top: 3.5px solid var(--accent-gold);
+  border-radius: 20px;
+  padding: 16px 20px;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.15), 0 0 30px rgba(180, 83, 9, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 360px;
+  z-index: 100000;
+  animation: nudgeBubbleSlideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes nudgeBubbleSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.nudge-avatar-wrapper {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-gold) 0%, #3b82f6 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(180, 83, 9, 0.2);
+}
+
+.nudge-sparkle-icon {
+  animation: spinSlow 4s linear infinite;
+}
+
+@keyframes spinSlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.nudge-bubble-content {
+  text-align: left;
+}
+
+.nudge-bubble-content h5 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0 0 2px 0;
+}
+
+.nudge-bubble-content p {
+  font-size: 11px;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.nudge-bubble-content p strong {
+  color: var(--primary-color);
+  font-weight: 800;
+}
+
+.nudge-dismiss-btn {
+  background: rgba(15, 23, 42, 0.04);
+  border: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  margin-top: -2px;
+  margin-right: -6px;
+  transition: var(--transition-fast);
+}
+
+.nudge-dismiss-btn:hover {
+  background: rgba(15, 23, 42, 0.08);
+  color: var(--accent-gold);
+  transform: scale(1.05);
+}

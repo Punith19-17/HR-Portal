@@ -1,0 +1,316 @@
+/* ==========================================================
+   AARYA ASSOCIATES - UNIFIED PORTAL LOGIN STYLING
+   File: Login.css (Cobalt & Slate Glassmorphic Forms)
+   ========================================================== */
+
+.login-glass-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 24px;
+  padding: 32px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.15);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+
+/* Back Button to bulletins view */
+.back-bulletin-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: rgba(15, 23, 42, 0.05);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: var(--transition-fast);
+}
+
+.back-bulletin-btn:hover {
+  background: var(--primary-color);
+  color: #ffffff;
+  transform: translateX(-2px);
+}
+
+/* Header typography inside forms */
+.login-header-section {
+  text-align: left;
+  border-bottom: 1px solid rgba(11, 15, 25, 0.06);
+  padding-bottom: 16px;
+}
+
+.login-header-section h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 0 6px 0;
+  background: linear-gradient(135deg, #0f172a 20%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.login-header-section p {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Form controls */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+}
+
+.input-group label {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.login-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  font-size: 14px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  color: var(--text-main);
+  background-color: rgba(255, 255, 255, 0.6);
+  transition: var(--transition-fast);
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+/* Eye / Lock Password Toggle inside inputs */
+.password-input-wrapper {
+  position: relative;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.password-toggle-btn:hover {
+  color: var(--primary-color);
+}
+
+/* Remember me row & custom checkbox styling */
+.login-remember-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2px 0;
+}
+
+.custom-checkbox-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 26px;
+  cursor: pointer;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  user-select: none;
+}
+
+.custom-checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-checkmark {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: rgba(15, 23, 42, 0.04);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  transition: var(--transition-fast);
+}
+
+.custom-checkbox-container:hover input ~ .checkbox-checkmark {
+  background-color: rgba(59, 130, 246, 0.08);
+  border-color: #3b82f6;
+}
+
+.custom-checkbox-container input:checked ~ .checkbox-checkmark {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+}
+
+.checkbox-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.custom-checkbox-container input:checked ~ .checkbox-checkmark:after {
+  display: block;
+}
+
+.custom-checkbox-container .checkbox-checkmark:after {
+  left: 5px;
+  top: 1px;
+  width: 4px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.forgot-pass-trigger {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #3b82f6;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.forgot-pass-trigger:hover {
+  text-decoration: underline;
+}
+
+/* Premium submit button styling (Reflective Light Sweep effect) */
+.login-action-btn {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0f172a 20%, #3b82f6 100%);
+  color: #ffffff;
+  font-size: 14.5px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.25);
+  transition: var(--transition-normal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-action-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 30%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  transition: 2.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.login-action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-premium), 0 8px 20px rgba(59, 130, 246, 0.35);
+}
+
+.login-action-btn:hover::after {
+  left: 130%;
+}
+
+.login-action-btn:active {
+  transform: translateY(0);
+}
+
+/* Links inside card */
+.login-footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+  margin-top: 6px;
+  border-top: 1px solid rgba(11, 15, 25, 0.06);
+  padding-top: 16px;
+}
+
+.login-link-item {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: var(--transition-fast);
+  cursor: pointer;
+}
+
+.login-link-item span {
+  color: #3b82f6;
+}
+
+.login-link-item:hover {
+  color: #3b82f6;
+}
+
+/* ==========================================================
+   Sweeping 3D Perspective Card Transitions
+   ========================================================== */
+@keyframes cardSweepLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(40px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.card-sweep-active {
+  animation: cardSweepLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}

@@ -1,0 +1,668 @@
+/* ============================================================
+   LeaveDashboard.css  –  Leave Hub
+   Dark Emerald hero + Horizontal gradient balance cards
+   Font: Outfit | Portal theme: #0b684c green + #c58f47 gold
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+@keyframes lv-up  { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+@keyframes lv-pop { 0%{transform:scale(.9);opacity:0} 100%{transform:scale(1);opacity:1} }
+@keyframes lv-bar { from{width:0} to{width:var(--bar-w)} }
+
+/* ── Wrapper ── */
+.leave-container {
+  width:100%; font-family:'Outfit',sans-serif;
+  animation:lv-up .45s ease forwards;
+}
+
+/* ══════════════════════════════
+   DARK EMERALD HERO
+   ══════════════════════════════ */
+.lv-hero {
+  border-radius:28px;
+  background:linear-gradient(135deg,#0a2e20 0%,#0b3d2a 35%,#0f4d35 65%,#133d2e 100%);
+  padding:34px 36px 28px;
+  margin-bottom:20px;
+  position:relative;overflow:hidden;
+  box-shadow:0 16px 48px rgba(10,46,32,.45);
+}
+.lv-hero::before {
+  content:'';position:absolute;top:-80px;right:-60px;
+  width:320px;height:320px;border-radius:50%;
+  background:radial-gradient(circle,rgba(197,143,71,.18) 0%,transparent 65%);
+  pointer-events:none;
+}
+.lv-hero::after {
+  content:'';position:absolute;bottom:-100px;left:60px;
+  width:260px;height:260px;border-radius:50%;
+  background:radial-gradient(circle,rgba(11,104,76,.35) 0%,transparent 65%);
+  pointer-events:none;
+}
+.lv-hero-grid {
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:40px 40px;
+  pointer-events:none;border-radius:28px;
+}
+.lv-hero-inner {
+  position:relative;z-index:1;
+  display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:20px;
+}
+.lv-hero-left { flex:1;min-width:200px; }
+.lv-hero-eyebrow {
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 14px;border-radius:20px;
+  background:rgba(197,143,71,.18);border:1px solid rgba(197,143,71,.3);
+  font-size:10px;font-weight:800;color:#e8b96a;
+  letter-spacing:.8px;text-transform:uppercase;margin-bottom:12px;
+}
+.lv-hero-title { font-size:32px;font-weight:900;color:#fff;margin:0 0 6px;letter-spacing:-.6px; }
+.lv-hero-sub   { font-size:13px;color:rgba(255,255,255,.55);margin:0;font-weight:500; }
+.lv-hero-actions {
+  display:flex;flex-direction:column;align-items:flex-end;gap:12px;
+  position:relative;z-index:1;
+}
+.lv-year-pill {
+  display:inline-flex;align-items:center;gap:7px;
+  padding:8px 16px;border-radius:20px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
+  font-size:12px;font-weight:700;color:rgba(255,255,255,.8);
+}
+.lv-apply-btn {
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Outfit',sans-serif;font-size:13px;font-weight:800;
+  padding:11px 22px;border-radius:14px;border:none;cursor:pointer;
+  background:linear-gradient(135deg,#c58f47,#e8b96a);color:#0a2e20;
+  box-shadow:0 6px 20px rgba(197,143,71,.4);transition:all .25s ease;
+}
+.lv-apply-btn:hover { transform:translateY(-2px);box-shadow:0 10px 28px rgba(197,143,71,.55); }
+
+/* Quick-stat strip inside hero */
+.lv-hero-stats {
+  display:flex;gap:14px;margin-top:24px;flex-wrap:wrap;
+  position:relative;z-index:1;
+}
+.lv-qstat {
+  display:flex;align-items:center;gap:10px;
+  padding:10px 16px;border-radius:14px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);
+  transition:background .2s;
+}
+.lv-qstat:hover { background:rgba(255,255,255,.12); }
+.lv-qstat-icon {
+  width:34px;height:34px;border-radius:10px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:16px;
+}
+.qi-green  { background:rgba(16,185,129,.15); }
+.qi-amber  { background:rgba(197,143,71,.18); }
+.qi-red    { background:rgba(239,68,68,.12); }
+.qi-blue   { background:rgba(59,130,246,.15); }
+.lv-qstat-info { display:flex;flex-direction:column;gap:1px; }
+.lv-qstat-label{ font-size:9px;font-weight:700;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.5px; }
+.lv-qstat-num  { font-size:22px;font-weight:900;color:#fff;line-height:1; }
+.lv-qstat-sub  { font-size:11px;font-weight:700; }
+.lv-qstat-sub.ok   { color:#4ade80; }
+.lv-qstat-sub.warn { color:#fbbf24; }
+.lv-qstat-sub.muted{ color:rgba(255,255,255,.4); }
+
+/* ══════════════════════════════════════════════
+   LEAVE BALANCE PANEL — Horizontal Ring Design
+   Unique: frosted glass panel + SVG rings in a row
+   ══════════════════════════════════════════════ */
+.lv-balance-panel {
+  border-radius:26px;
+  background:linear-gradient(135deg,#f8fff9 0%,#f0fdf4 30%,#fff8f0 65%,#fefbf0 100%);
+  border:1.5px solid rgba(197,143,71,.18);
+  box-shadow:0 8px 40px rgba(11,104,76,.07),0 2px 8px rgba(197,143,71,.05);
+  padding:24px 28px;
+  margin-bottom:20px;
+  position:relative;overflow:hidden;
+}
+/* Soft orb decorations inside the panel */
+.lv-balance-panel::before {
+  content:'';position:absolute;top:-60px;right:-40px;
+  width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle,rgba(197,143,71,.1) 0%,transparent 70%);
+  pointer-events:none;
+}
+.lv-balance-panel::after {
+  content:'';position:absolute;bottom:-50px;left:40px;
+  width:160px;height:160px;border-radius:50%;
+  background:radial-gradient(circle,rgba(11,104,76,.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+.lv-balance-panel-head {
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:20px;position:relative;z-index:1;
+}
+.lv-balance-panel-title {
+  display:flex;align-items:center;gap:10px;
+}
+.lv-balance-panel-icon {
+  width:36px;height:36px;border-radius:10px;
+  background:linear-gradient(135deg,rgba(11,104,76,.1),rgba(197,143,71,.08));
+  border:1px solid rgba(11,104,76,.12);
+  display:flex;align-items:center;justify-content:center;font-size:16px;
+}
+.lv-balance-panel-label {
+  font-size:14px;font-weight:800;color:#1a202c;margin:0 0 1px;
+}
+.lv-balance-panel-sub { font-size:10px;color:#718096;margin:0;font-weight:600; }
+.lv-balance-year {
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 12px;border-radius:20px;
+  background:rgba(197,143,71,.1);border:1px solid rgba(197,143,71,.2);
+  font-size:11px;font-weight:700;color:#a47230;
+}
+
+/* ── Ring row ── */
+.lv-ring-row {
+  display:flex;align-items:flex-start;justify-content:space-around;
+  gap:10px;position:relative;z-index:1;
+}
+/* Vertical divider between rings */
+.lv-ring-row > * + * {
+  border-left:1px solid rgba(197,143,71,.12);
+  padding-left:10px;
+}
+
+/* Single ring item */
+.lv-ring-item {
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  flex:1;cursor:default;transition:transform .25s ease;
+  padding:4px 0;
+}
+.lv-ring-item:hover { transform:translateY(-4px); }
+
+/* SVG ring */
+.lv-ring-svg-wrap {
+  position:relative;width:80px;height:80px;flex-shrink:0;
+}
+.lv-ring-svg {
+  width:80px;height:80px;
+  transform:rotate(-90deg);
+}
+.lv-ring-track { fill:none;stroke-width:7;stroke-linecap:round; }
+.lv-ring-fill  {
+  fill:none;stroke-width:7;stroke-linecap:round;
+  stroke-dasharray:220;
+  stroke-dashoffset:220;
+  animation:lv-ring-anim 1.1s cubic-bezier(.4,0,.2,1) forwards .35s;
+  transition:stroke-dashoffset 1s ease;
+}
+@keyframes lv-ring-anim {
+  from { stroke-dashoffset:220; }
+  to   { stroke-dashoffset:var(--dash-end,220); }
+}
+.lv-ring-center {
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+}
+.lv-ring-center-num  { font-size:22px;font-weight:900;line-height:1; }
+.lv-ring-center-sub  { font-size:8px;font-weight:700;color:#a0aec0;text-transform:uppercase;letter-spacing:.3px; }
+
+/* Ring color themes */
+.ri-blue  .lv-ring-track { stroke:rgba(59,130,246,.12); }
+.ri-blue  .lv-ring-fill  { stroke:url(#grad-blue); }
+.ri-blue  .lv-ring-center-num { color:#2563eb; }
+
+.ri-teal  .lv-ring-track { stroke:rgba(13,148,136,.12); }
+.ri-teal  .lv-ring-fill  { stroke:url(#grad-teal); }
+.ri-teal  .lv-ring-center-num { color:#0d9488; }
+
+.ri-rose  .lv-ring-track { stroke:rgba(244,63,94,.12); }
+.ri-rose  .lv-ring-fill  { stroke:url(#grad-rose); }
+.ri-rose  .lv-ring-center-num { color:#e11d48; }
+
+.ri-amber .lv-ring-track { stroke:rgba(217,119,6,.12); }
+.ri-amber .lv-ring-fill  { stroke:url(#grad-amber); }
+.ri-amber .lv-ring-center-num { color:#b45309; }
+
+.ri-violet.lv-ring-track { stroke:rgba(124,58,237,.12); }
+.ri-violet .lv-ring-fill { stroke:url(#grad-violet); }
+.ri-violet.lv-ring-center-num { color:#7c3aed; }
+/* fallback solid strokes for browsers without SVG gradient support */
+.ri-blue  .lv-ring-fill  { stroke:#3b82f6; }
+.ri-teal  .lv-ring-fill  { stroke:#0d9488; }
+.ri-rose  .lv-ring-fill  { stroke:#f43f5e; }
+.ri-amber .lv-ring-fill  { stroke:#d97706; }
+.ri-violet .lv-ring-fill { stroke:#7c3aed; }
+
+/* Ring icon badge */
+.lv-ring-icon {
+  width:28px;height:28px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;position:absolute;bottom:-4px;right:-4px;
+}
+.ri-blue   .lv-ring-icon { background:linear-gradient(135deg,#dbeafe,#bfdbfe); }
+.ri-teal   .lv-ring-icon { background:linear-gradient(135deg,#ccfbf1,#99f6e4); }
+.ri-rose   .lv-ring-icon { background:linear-gradient(135deg,#ffe4e6,#fecdd3); }
+.ri-amber  .lv-ring-icon { background:linear-gradient(135deg,#fef3c7,#fde68a); }
+.ri-violet .lv-ring-icon { background:linear-gradient(135deg,#f3e8ff,#e9d5ff); }
+
+/* Ring label + meta below the circle */
+.lv-ring-label {
+  font-size:11px;font-weight:800;color:#1a202c;
+  text-align:center;text-transform:uppercase;letter-spacing:.3px;
+  margin:0;white-space:nowrap;
+}
+.lv-ring-meta { font-size:10px;font-weight:600;color:#a0aec0;text-align:center;margin:0; }
+.lv-ring-booked {
+  display:inline-block;
+  font-size:10px;font-weight:700;
+  padding:3px 10px;border-radius:20px;margin:0;
+}
+.ri-blue   .lv-ring-booked { background:rgba(59,130,246,.1);  color:#2563eb; }
+.ri-teal   .lv-ring-booked { background:rgba(13,148,136,.1);  color:#0d9488; }
+.ri-rose   .lv-ring-booked { background:rgba(244,63,94,.1);   color:#e11d48; }
+.ri-amber  .lv-ring-booked { background:rgba(217,119,6,.1);   color:#b45309; }
+.ri-violet .lv-ring-booked { background:rgba(124,58,237,.1);  color:#7c3aed; }
+
+/* lv-bal-card removed — replaced by lv-ring-item + lv-balance-panel */
+.lv-bal-card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 14px 36px rgba(0,0,0,.1);
+}
+
+/* Decorative circle blob in top-right of each card */
+.lv-bal-card::after {
+  content:'';position:absolute;top:-20px;right:-20px;
+  width:80px;height:80px;border-radius:50%;
+  opacity:.25;pointer-events:none;
+}
+
+/* Card color themes */
+.lv-bal-card.bc-blue {
+  background:linear-gradient(145deg,#eff6ff 0%,#dbeafe 60%,#bfdbfe 100%);
+  border-color:rgba(59,130,246,.2);
+}
+.lv-bal-card.bc-blue::after   { background:#3b82f6; }
+
+.lv-bal-card.bc-teal {
+  background:linear-gradient(145deg,#f0fdf9 0%,#ccfbf1 60%,#99f6e4 100%);
+  border-color:rgba(13,148,136,.2);
+}
+.lv-bal-card.bc-teal::after   { background:#14b8a6; }
+
+.lv-bal-card.bc-rose {
+  background:linear-gradient(145deg,#fff1f2 0%,#ffe4e6 60%,#fecdd3 100%);
+  border-color:rgba(244,63,94,.2);
+}
+.lv-bal-card.bc-rose::after   { background:#f43f5e; }
+
+.lv-bal-card.bc-amber {
+  background:linear-gradient(145deg,#fffbeb 0%,#fef3c7 60%,#fde68a 100%);
+  border-color:rgba(217,119,6,.2);
+}
+.lv-bal-card.bc-amber::after  { background:#d97706; }
+
+.lv-bal-card.bc-violet {
+  background:linear-gradient(145deg,#faf5ff 0%,#f3e8ff 60%,#e9d5ff 100%);
+  border-color:rgba(124,58,237,.2);
+}
+.lv-bal-card.bc-violet::after { background:#7c3aed; }
+
+/* Icon pill at top */
+.lv-bal-icon {
+  width:38px;height:38px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;margin-bottom:12px;
+  position:relative;z-index:1;
+}
+.bc-blue   .lv-bal-icon { background:rgba(59,130,246,.15); }
+.bc-teal   .lv-bal-icon { background:rgba(13,148,136,.12); }
+.bc-rose   .lv-bal-icon { background:rgba(244,63,94,.12);  }
+.bc-amber  .lv-bal-icon { background:rgba(217,119,6,.12);  }
+.bc-violet .lv-bal-icon { background:rgba(124,58,237,.12); }
+
+/* Big number */
+.lv-bal-num {
+  font-size:38px;font-weight:900;line-height:1;margin-bottom:2px;
+  position:relative;z-index:1;
+}
+.bc-blue   .lv-bal-num { color:#2563eb; }
+.bc-teal   .lv-bal-num { color:#0d9488; }
+.bc-rose   .lv-bal-num { color:#e11d48; }
+.bc-amber  .lv-bal-num { color:#b45309; }
+.bc-violet .lv-bal-num { color:#7c3aed; }
+
+/* Label + meta */
+.lv-bal-label {
+  font-size:11px;font-weight:800;color:#1a202c;
+  text-transform:uppercase;letter-spacing:.4px;margin-bottom:1px;
+  position:relative;z-index:1;
+}
+.lv-bal-total {
+  font-size:10px;font-weight:600;color:#718096;margin-bottom:10px;
+  position:relative;z-index:1;
+}
+
+/* Progress bar */
+.lv-bal-bar-track {
+  height:5px;border-radius:5px;background:rgba(0,0,0,.08);
+  overflow:hidden;position:relative;z-index:1;
+}
+.lv-bal-bar-fill {
+  height:100%;border-radius:5px;
+  width:var(--bar-w,0%);
+  animation:lv-bar .9s ease forwards .3s;
+  width:0;
+}
+.bc-blue   .lv-bal-bar-fill { background:linear-gradient(90deg,#3b82f6,#60a5fa); }
+.bc-teal   .lv-bal-bar-fill { background:linear-gradient(90deg,#0d9488,#2dd4bf); }
+.bc-rose   .lv-bal-bar-fill { background:linear-gradient(90deg,#f43f5e,#fb7185); }
+.bc-amber  .lv-bal-bar-fill { background:linear-gradient(90deg,#d97706,#fbbf24); }
+.bc-violet .lv-bal-bar-fill { background:linear-gradient(90deg,#7c3aed,#a78bfa); }
+
+/* Booked tag */
+.lv-bal-booked {
+  display:inline-block;margin-top:8px;
+  font-size:10px;font-weight:700;
+  padding:3px 9px;border-radius:20px;
+  position:relative;z-index:1;
+}
+.bc-blue   .lv-bal-booked { background:rgba(59,130,246,.12); color:#2563eb; }
+.bc-teal   .lv-bal-booked { background:rgba(13,148,136,.1);  color:#0d9488; }
+.bc-rose   .lv-bal-booked { background:rgba(244,63,94,.1);   color:#e11d48; }
+.bc-amber  .lv-bal-booked { background:rgba(217,119,6,.1);   color:#b45309; }
+.bc-violet .lv-bal-booked { background:rgba(124,58,237,.1);  color:#7c3aed; }
+
+/* ══════════════════════════════
+   TAB BAR
+   ══════════════════════════════ */
+.lv-tab-bar {
+  display:flex;align-items:center;gap:4px;margin-bottom:20px;
+  background:rgba(255,255,255,.88);border-radius:16px;padding:5px;
+  border:1px solid rgba(11,104,76,.12);
+  box-shadow:0 4px 16px rgba(11,104,76,.06);
+  width:fit-content;backdrop-filter:blur(10px);
+}
+.lv-tab {
+  padding:9px 22px;border-radius:11px;border:none;
+  background:transparent;font-family:'Outfit',sans-serif;
+  font-size:13px;font-weight:700;color:#718096;
+  cursor:pointer;transition:all .2s;white-space:nowrap;
+}
+.lv-tab:hover  { color:#0b684c;background:rgba(11,104,76,.06); }
+.lv-tab.active {
+  background:linear-gradient(135deg,#0b3d2a,#0b684c);color:#fff;
+  box-shadow:0 4px 14px rgba(11,104,76,.3);
+}
+
+/* ══════════════════════════════
+   UPCOMING PANEL + HOLIDAY GRID
+   ══════════════════════════════ */
+.lv-upcoming-panel {
+  background:#fff;border-radius:22px;overflow:hidden;
+  border:1px solid rgba(197,143,71,.15);
+  box-shadow:0 6px 28px rgba(11,104,76,.06);
+}
+.lv-panel-head {
+  padding:14px 20px;
+  background:linear-gradient(135deg,rgba(11,104,76,.05),rgba(197,143,71,.04));
+  border-bottom:1px solid rgba(197,143,71,.12);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
+}
+.lv-panel-left  { display:flex;align-items:center;gap:10px; }
+.lv-panel-icon  {
+  width:36px;height:36px;border-radius:10px;flex-shrink:0;
+  background:linear-gradient(135deg,rgba(11,104,76,.1),rgba(26,58,92,.08));
+  border:1px solid rgba(11,104,76,.12);
+  display:flex;align-items:center;justify-content:center;font-size:16px;
+}
+.lv-panel-title { font-size:14px;font-weight:800;color:#1a202c;margin:0 0 1px; }
+.lv-panel-sub   { font-size:10px;color:#718096;margin:0; }
+
+/* Panel controls row: month picker + apply btn */
+.lv-panel-controls {
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+.lv-month-picker {
+  font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;
+  padding:7px 12px;border-radius:12px;
+  border:1.5px solid rgba(11,104,76,.2);background:rgba(255,255,255,.95);
+  color:#0b684c;outline:none;cursor:pointer;transition:border-color .2s;
+}
+.lv-month-picker:focus { border-color:#0b684c;box-shadow:0 0 0 3px rgba(11,104,76,.07); }
+.lv-apply-sm {
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:'Outfit',sans-serif;font-size:12px;font-weight:800;
+  padding:7px 16px;border-radius:12px;border:none;cursor:pointer;
+  background:linear-gradient(135deg,#c58f47,#e8b96a);color:#0a2e20;
+  box-shadow:0 4px 12px rgba(197,143,71,.3);transition:all .2s ease;
+}
+.lv-apply-sm:hover { transform:translateY(-1px);box-shadow:0 6px 18px rgba(197,143,71,.45); }
+
+/* Holiday body */
+.lv-holiday-body { padding:20px; }
+
+/* Month label row */
+.lv-holiday-month-label {
+  display:flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:700;color:#2d3748;margin-bottom:16px;
+}
+.lv-hml-badge { font-size:16px; }
+.lv-hml-count {
+  margin-left:auto;
+  font-size:10px;font-weight:800;padding:3px 10px;border-radius:20px;
+  background:rgba(11,104,76,.08);color:#0b684c;border:1px solid rgba(11,104,76,.12);
+}
+
+/* Holiday card grid */
+.lv-holiday-grid {
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;
+  margin-bottom:22px;
+}
+.lv-hol-card {
+  display:flex;align-items:center;gap:14px;
+  padding:14px 16px;border-radius:16px;
+  border:1.5px solid transparent;
+  position:relative;overflow:hidden;
+  transition:all .22s ease;cursor:default;
+  animation:lv-pop .35s ease forwards;
+}
+.lv-hol-card:hover { transform:translateY(-3px); }
+
+/* Holiday type color themes */
+.lv-hol-card.hol-national {
+  background:linear-gradient(135deg,#f0fdf4,#dcfce7);
+  border-color:rgba(22,163,74,.2);
+}
+.lv-hol-card.hol-national:hover { box-shadow:0 8px 24px rgba(22,163,74,.12); }
+.lv-hol-card.hol-festival {
+  background:linear-gradient(135deg,#fffbeb,#fef3c7);
+  border-color:rgba(217,119,6,.2);
+}
+.lv-hol-card.hol-festival:hover { box-shadow:0 8px 24px rgba(217,119,6,.1); }
+.lv-hol-card.hol-state {
+  background:linear-gradient(135deg,#eff6ff,#dbeafe);
+  border-color:rgba(59,130,246,.2);
+}
+.lv-hol-card.hol-state:hover { box-shadow:0 8px 24px rgba(59,130,246,.1); }
+
+/* Date block — big date left side */
+.lv-hol-date-block {
+  display:flex;flex-direction:column;align-items:center;
+  min-width:44px;text-align:center;
+}
+.lv-hol-day-num  { font-size:28px;font-weight:900;line-height:1; }
+.lv-hol-day-name { font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;opacity:.65; }
+.hol-national .lv-hol-day-num  { color:#15803d; }
+.hol-national .lv-hol-day-name { color:#15803d; }
+.hol-festival .lv-hol-day-num  { color:#b45309; }
+.hol-festival .lv-hol-day-name { color:#b45309; }
+.hol-state    .lv-hol-day-num  { color:#1d4ed8; }
+.hol-state    .lv-hol-day-name { color:#1d4ed8; }
+
+/* Vertical divider */
+.lv-hol-date-block + .lv-hol-info {
+  border-left:1.5px solid rgba(0,0,0,.07);
+  padding-left:14px;
+}
+
+/* Holiday info */
+.lv-hol-info    { flex:1;min-width:0; }
+.lv-hol-name    { font-size:13px;font-weight:800;color:#1a202c;margin-bottom:5px; }
+.lv-hol-type    {
+  display:inline-block;font-size:9px;font-weight:800;
+  padding:2px 9px;border-radius:20px;text-transform:uppercase;letter-spacing:.4px;
+}
+.htype-national { background:rgba(22,163,74,.12); color:#15803d; }
+.htype-festival { background:rgba(217,119,6,.12);  color:#b45309; }
+.htype-state    { background:rgba(59,130,246,.12);  color:#1d4ed8; }
+
+/* Holiday icon — right */
+.lv-hol-icon {
+  font-size:22px;flex-shrink:0;
+  opacity:.7;
+}
+
+/* Empty state — no image, just emoji + text */
+.lv-holiday-empty {
+  text-align:center;padding:32px 20px;
+  background:rgba(0,0,0,.02);border-radius:16px;margin-bottom:22px;
+}
+.lv-he-icon { font-size:36px;margin-bottom:10px; }
+.lv-he-text { font-size:14px;font-weight:800;color:#2d3748;margin:0 0 4px; }
+.lv-he-sub  { font-size:12px;font-weight:500;color:#a0aec0;margin:0; }
+
+/* My scheduled leaves strip */
+.lv-my-leaves-head {
+  display:flex;align-items:center;gap:7px;
+  font-size:13px;font-weight:800;color:#1a202c;
+  padding:10px 0 10px;border-top:1px solid rgba(197,143,71,.1);
+  margin-top:4px;
+}
+.lv-my-leaves-empty {
+  display:flex;align-items:center;gap:12px;
+  padding:14px 16px;border-radius:14px;
+  background:linear-gradient(135deg,rgba(11,104,76,.04),rgba(197,143,71,.03));
+  border:1.5px dashed rgba(11,104,76,.15);
+  font-size:12px;font-weight:600;color:#718096;
+}
+.lv-apply-inline {
+  margin-left:auto;
+  display:inline-flex;align-items:center;gap:5px;
+  font-family:'Outfit',sans-serif;font-size:11px;font-weight:800;
+  padding:6px 14px;border-radius:10px;border:none;cursor:pointer;
+  background:linear-gradient(135deg,#0b3d2a,#0b684c);color:#fff;
+  box-shadow:0 3px 10px rgba(11,104,76,.2);transition:all .2s;
+}
+.lv-apply-inline:hover { transform:translateY(-1px);box-shadow:0 5px 16px rgba(11,104,76,.3); }
+/* lv-panel-head duplicates removed — defined in holiday grid section above */
+
+/* ══════════════════════════════
+   HISTORY TIMELINE
+   ══════════════════════════════ */
+.lv-timeline-toolbar {
+  display:flex;align-items:center;flex-wrap:wrap;gap:10px;
+  padding:12px 18px;border-radius:16px;margin-bottom:16px;
+  background:rgba(255,255,255,.9);border:1px solid rgba(197,143,71,.14);
+  box-shadow:0 3px 16px rgba(11,104,76,.05);backdrop-filter:blur(10px);
+}
+.lv-month-input {
+  font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;
+  padding:8px 14px;border:1.5px solid rgba(11,104,76,.2);border-radius:12px;
+  background:#fff;color:#1a202c;outline:none;transition:border-color .2s;
+}
+.lv-month-input:focus { border-color:#0b684c; }
+.lv-search-btn {
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;
+  padding:8px 16px;border-radius:12px;cursor:pointer;transition:all .2s;
+  background:rgba(197,143,71,.08);color:#a47230;
+  border:1.5px solid rgba(197,143,71,.25);
+}
+.lv-search-btn:hover { background:rgba(197,143,71,.18); }
+.lv-new-btn {
+  display:inline-flex;align-items:center;gap:7px;margin-left:auto;
+  font-family:'Outfit',sans-serif;font-size:12px;font-weight:800;
+  padding:8px 18px;border-radius:12px;border:none;cursor:pointer;
+  background:linear-gradient(135deg,#0b3d2a,#0b684c);color:#fff;
+  box-shadow:0 4px 14px rgba(11,104,76,.25);transition:all .2s;
+}
+.lv-new-btn:hover { transform:translateY(-1px);box-shadow:0 7px 20px rgba(11,104,76,.35); }
+
+.lv-timeline-panel {
+  background:#fff;border-radius:22px;overflow:hidden;
+  border:1px solid rgba(197,143,71,.15);
+  box-shadow:0 6px 28px rgba(11,104,76,.06);
+}
+.lv-timeline-head {
+  padding:14px 20px;
+  background:linear-gradient(135deg,rgba(11,104,76,.05),rgba(197,143,71,.04));
+  border-bottom:1px solid rgba(197,143,71,.12);
+  display:flex;align-items:center;gap:10px;
+}
+.lv-timeline-icon  {
+  width:36px;height:36px;border-radius:10px;flex-shrink:0;
+  background:linear-gradient(135deg,rgba(11,104,76,.1),rgba(26,58,92,.08));
+  border:1px solid rgba(11,104,76,.12);
+  display:flex;align-items:center;justify-content:center;font-size:16px;
+}
+.lv-timeline-title { font-size:14px;font-weight:800;color:#1a202c;margin:0 0 1px; }
+.lv-timeline-sub   { font-size:10px;color:#718096;margin:0; }
+.lv-timeline-body  { padding:20px; }
+.lv-timeline-list  { display:flex;flex-direction:column;gap:12px; }
+
+/* Timeline card */
+.lv-tl-card {
+  display:flex;align-items:flex-start;gap:14px;
+  padding:14px 16px;border-radius:16px;
+  border:1px solid rgba(0,0,0,.05);
+  background:linear-gradient(135deg,#fdfdfd,#f8faf9);
+  transition:all .2s ease;cursor:default;
+  animation:lv-pop .35s ease forwards;
+}
+.lv-tl-card:hover {
+  border-color:rgba(197,143,71,.25);
+  box-shadow:0 6px 24px rgba(11,104,76,.08);
+  transform:translateX(3px);
+}
+.lv-tl-accent { width:4px;border-radius:4px;align-self:stretch;flex-shrink:0;min-height:56px; }
+.tla-sick    { background:linear-gradient(180deg,#f43f5e,#fda4af); }
+.tla-casual  { background:linear-gradient(180deg,#3b82f6,#93c5fd); }
+.tla-earned  { background:linear-gradient(180deg,#0d9488,#5eead4); }
+.tla-lwp     { background:linear-gradient(180deg,#6b7280,#d1d5db); }
+.tla-sabbat  { background:linear-gradient(180deg,#7c3aed,#c4b5fd); }
+.lv-tl-av {
+  width:38px;height:38px;border-radius:12px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:800;color:#fff;
+  background:linear-gradient(135deg,#0b3d2a,#0b684c);
+}
+.lv-tl-body { flex:1;min-width:0; }
+.lv-tl-row1 { display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin-bottom:5px; }
+.lv-tl-name { font-size:13px;font-weight:800;color:#1a202c; }
+.lv-tl-id   {
+  font-size:10px;font-weight:700;color:#0b684c;
+  background:rgba(11,104,76,.08);padding:2px 8px;border-radius:6px;
+}
+.lv-tl-ltype {
+  display:inline-flex;align-items:center;
+  font-size:10px;font-weight:700;
+  padding:3px 10px;border-radius:20px;
+}
+.ltb-sick   { background:rgba(244,63,94,.1);   color:#e11d48; }
+.ltb-casual { background:rgba(59,130,246,.1);  color:#2563eb; }
+.ltb-earned { background:rgba(13,148,136,.1);  color:#0d9488; }
+.ltb-lwp    { background:rgba(107,114,128,.1); color:#4b5563; }
+.ltb-sabbat { background:rgba(124,58,237,.1);  color:#7c3aed; }
+.lv-tl-paytype {
+  font-size:10px;font-weight:700;
+  padding:2px 8px;border-radius:6px;
+  background:rgba(11,104,76,.08);color:#0b684c;
+}
+.lv-tl-row2 { display:flex;align-items:center;flex-wrap:wrap;gap:14px;font-size:11px;font-weight:600;color:#718096; }
+.lv-tl-days { font-weight:800;color:#0b684c;font-size:12px; }
+.lv-tl-date { flex-shrink:0;text-align:right;font-size:10px;font-weight:700;color:#a0aec0;white-space:nowrap; }
+.lv-timeline-empty { text-align:center;padding:40px;color:#a0aec0; }
+.lv-timeline-empty p { font-size:13px;font-weight:600;margin:8px 0 0; }
+
+/* ── Responsive ── */
+@media(max-width:1024px) { .lv-balance-row { grid-template-columns:repeat(3,1fr); } }
+@media(max-width:700px)  { .lv-balance-row { grid-template-columns:repeat(2,1fr); }
+  .lv-hero { padding:22px 18px; } .lv-hero-title { font-size:24px; }
+  .lv-hero-stats { flex-direction:column; }
+}

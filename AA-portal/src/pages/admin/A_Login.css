@@ -1,0 +1,109 @@
+/* Page Styles */
+.page {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #E4EfE9, #93A5CF);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Header */
+  .header {
+    font-size: 36px;
+    font-weight: bold;
+    color: black;
+    background: linear-gradient(135deg, #8e9eab, rgb(168, 178, 178));
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  /* Card */
+  .card {
+    background: linear-gradient(135deg, #E8F5C8, #9FA5D5);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 700px;
+    text-align: center;
+    margin-top: 80px;
+  }
+  
+  /* Input Fields */
+  .input-group {
+    text-align: left;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  .input-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 6px;
+    font-size: 18px;
+    background: linear-gradient(to right, #ffffff, #e3f2fd);
+    color: #333;
+    outline: none;
+    border: 1px solid #ccc;
+  }
+  
+  /* Button */
+  button {
+    width: 60%;
+    padding: 14px;
+    border: none;
+    background: linear-gradient(to right, #0083B0, #00B4DB);
+    color: white;
+    font-size: 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+  }
+  
+  button:hover {
+    background: linear-gradient(to right, #005f73, #0a9396);
+  }
+  
+  /* Eye Icon */
+  .eye-icon {
+    position: absolute;
+    right: 15px;
+    top: 42px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #555;
+  }
+  
+  /* Error Message */
+  .error-message {
+    margin-top: 15px;
+    font-size: 16px;
+    color: red;
+  }
+  
+  /* Links */
+  .link {
+    margin-top: 15px;
+    font-size: 16px;
+  }
+  
+  .signup-link {
+    color: #1E90FF;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  

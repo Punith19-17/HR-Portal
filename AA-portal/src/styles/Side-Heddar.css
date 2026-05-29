@@ -1,0 +1,590 @@
+/* Luxurious Full-Height Left Glass Sidebar & Top Floating Capsule CSS */
+
+:root {
+  --aa-primary-light: #fbfaf7;       /* Warm cream background */
+  --aa-primary-teal: #0b684c;        /* Corporate deep forest green */
+  --aa-teal-accent: #10b981;        /* Glowing active mint */
+  --aa-gold: #c58f47;                /* Elegant brand gold */
+  --aa-gold-light: rgba(197, 143, 71, 0.08);
+  --aa-orange: #ef4444;              /* Coral red active dots */
+  --aa-border: rgba(197, 143, 71, 0.25); /* Thin champagne gold borders */
+  --aa-card-glass: rgba(255, 255, 255, 0.72); /* Translucent white glass sidebar */
+}
+
+.dark-app-shell {
+  background: radial-gradient(circle at 50% -20%, #fcfbfa 0%, #edf6f2 60%, #e2efe8 100%);
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  font-family: "Outfit", "Inter", sans-serif;
+}
+
+/* ==========================================================================
+   1. LUXURIOUS FULL-HEIGHT LEFT GLASS SIDEBAR
+   ========================================================================== */
+
+.premium-left-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 260px;
+  height: 100vh;
+  background: var(--aa-card-glass);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-right: 1px solid var(--aa-border);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0;
+  z-index: 980;
+  box-shadow: 10px 0 40px rgba(13, 44, 36, 0.02);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+}
+
+/* Luxurious Slide-and-Pop Entrance Animation for desktop */
+@keyframes sidebar-pop-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@media (min-width: 992px) {
+  .premium-left-sidebar {
+    animation: sidebar-pop-in 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+.sidebar-brand-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 20px;
+  margin-bottom: 28px;
+}
+
+/* Double-Ring Interlocking Logo Badge */
+.double-ring-logo-badge {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(197, 143, 71, 0.32);
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.logo-inner-ring {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: transparent; /* Fully transparent and natural */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.brand-logo-img {
+  width: 42px; /* Bigger, bolder, fits perfectly inside circle */
+  height: 42px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.08));
+  transition: transform 0.25s ease;
+}
+
+.sidebar-brand-section:hover .brand-logo-img {
+  transform: scale(1.10) rotate(3deg); /* More active visual feedback on hover */
+}
+
+/* Delicate Brand Divider Line (centered, fading transparently towards the sides) */
+.sidebar-brand-divider {
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(197, 143, 71, 0.22) 20%, rgba(197, 143, 71, 0.22) 80%, transparent 100%);
+  margin: 0 auto 20px auto;
+}
+
+.logo-inner-ring .char-a-1 {
+  color: #ffffff;
+  font-size: 19px;
+  font-family: "Georgia", serif;
+  font-weight: bold;
+  transform: translateX(4px) translateY(-1px);
+}
+
+.logo-inner-ring .char-a-2 {
+  color: var(--aa-gold);
+  font-size: 16px;
+  font-family: "Georgia", serif;
+  font-weight: bold;
+  transform: translateX(-4px) translateY(4px);
+  position: absolute;
+}
+
+.brand-text-sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name-serif {
+  font-family: "Georgia", serif;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--aa-primary-teal);
+  letter-spacing: 0.5px;
+}
+
+.brand-name-sub-serif {
+  font-family: "Georgia", serif;
+  font-size: 8px;
+  font-weight: 700;
+  color: var(--aa-gold);
+  letter-spacing: 1.5px;
+  margin-top: 1px;
+}
+
+/* Sidebar Menu Links */
+.sidebar-nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  padding: 0 16px;
+  overflow-y: auto;
+}
+
+.sidebar-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #5c6e6a;
+  border-radius: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border-left: 3px solid transparent;
+}
+
+.sidebar-nav-link:hover {
+  background: rgba(197, 143, 71, 0.08);
+  color: var(--aa-primary-teal);
+  padding-left: 20px;
+}
+
+.sidebar-nav-link.active {
+  background: linear-gradient(135deg, rgba(197, 143, 71, 0.12) 0%, rgba(197, 143, 71, 0.04) 100%);
+  color: #a47230;
+  border-left-color: var(--aa-primary-teal);
+  border-radius: 0 12px 12px 0;
+}
+
+.nav-icon {
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.sidebar-nav-link:hover .nav-icon {
+  transform: scale(1.1);
+}
+
+.sidebar-section-divider {
+  font-size: 9px;
+  font-weight: 800;
+  color: #92a5a0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 20px 0 10px 16px;
+}
+
+/* Corporate ID Badge Block for Sneha G */
+.sidebar-consultant-card {
+  margin: 16px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(197, 143, 71, 0.22);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
+}
+
+.consultant-card-badge-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.badge-avatar-ring {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--aa-gold);
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.badge-avatar-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--aa-gold-light);
+  color: var(--aa-gold);
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge-title-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.badge-name {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--aa-primary-teal);
+}
+
+.badge-designation {
+  font-size: 9px;
+  color: var(--aa-gold);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 12px;
+}
+
+.badge-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: #5c6e6a;
+  font-size: 9px;
+  font-weight: 500;
+}
+
+.icon-gold {
+  color: var(--aa-gold);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.address-line {
+  line-height: 1.35;
+}
+
+.sidebar-logout-btn-pill {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(213, 92, 39, 0.15);
+  background: rgba(213, 92, 39, 0.04);
+  color: #d55c27;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sidebar-logout-btn-pill:hover {
+  background: #d55c27;
+  color: #ffffff;
+  border-color: #d55c27;
+  box-shadow: 0 4px 12px rgba(213, 92, 39, 0.15);
+}
+
+/* Mobile Sidebar Drawer backdrop overlay */
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 970;
+}
+
+/* ==========================================================================
+   2. TOP FLOATING CAPSULE (Aligned starting next to full sidebar)
+   ========================================================================== */
+
+.top-floating-capsule {
+  position: fixed;
+  top: 16px;
+  left: 276px; /* 260px sidebar width + 16px gap */
+  right: 16px;
+  height: 56px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--aa-border);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 900;
+  box-shadow: 0 10px 30px rgba(13, 44, 36, 0.03);
+  transition: left 0.3s ease;
+}
+
+.capsule-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mobile-hamburger-btn {
+  display: none; /* Hidden on desktop screens */
+  background: transparent;
+  border: none;
+  color: var(--aa-primary-teal);
+  cursor: pointer;
+  padding: 4px;
+  align-items: center;
+  justify-content: center;
+}
+
+.executive-portal-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--aa-primary-teal);
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+}
+
+.capsule-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Floating Subnav tabs */
+.capsule-subnav {
+  display: flex;
+  background: rgba(0, 0, 0, 0.03);
+  padding: 3px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.subnav-pill {
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #5c6e6a;
+  border-radius: 9px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.subnav-pill:hover {
+  color: var(--aa-primary-teal);
+}
+
+.subnav-pill.active {
+  background: rgba(197, 143, 71, 0.15);
+  color: #a47230;
+  border: 1px solid rgba(197, 143, 71, 0.15);
+}
+
+.capsule-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.capsule-icon-btn {
+  background: transparent;
+  border: none;
+  color: #5c6e6a;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px;
+  border-radius: 50%;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.capsule-icon-btn:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--aa-primary-teal);
+}
+
+.capsule-badge-dot {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--aa-orange);
+}
+
+.capsule-user-widget {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-left: 12px;
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.avatar-mini-glow {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--aa-gold) 0%, #a47230 100%);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(197, 143, 71, 0.2);
+}
+
+.profile-text-dark {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-text-dark .user-name-short {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--aa-primary-teal);
+}
+
+.profile-text-dark .user-role-short {
+  font-size: 9px;
+  color: #5c6e6a;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   3. GRAND FULLSCREEN WORKSPACE (Aligned next to Sidebar)
+   ========================================================================== */
+
+.grand-workspace {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 88px 32px 32px 32px;
+  background: transparent;
+  position: relative;
+  z-index: 10;
+  height: 100vh;
+  margin-left: 260px; /* 260px sidebar width */
+  width: calc(100% - 260px);
+  box-sizing: border-box;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.workspace-bottom-padding {
+  height: 8px;
+}
+
+/* Custom Light Scrollbar */
+.grand-workspace::-webkit-scrollbar {
+  width: 6px;
+}
+.grand-workspace::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.02);
+}
+.grand-workspace::-webkit-scrollbar-thumb {
+  background: rgba(197, 143, 71, 0.2);
+  border-radius: 3px;
+}
+.grand-workspace::-webkit-scrollbar-thumb:hover {
+  background: rgba(197, 143, 71, 0.4);
+}
+
+
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================================== */
+
+@media (max-width: 992px) {
+  .premium-left-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100vh;
+    border-radius: 0;
+    border: none;
+    border-right: 1px solid var(--aa-border);
+    transform: translateX(-100%);
+    box-shadow: none;
+  }
+
+  .premium-left-sidebar.open {
+    transform: translateX(0);
+    box-shadow: 20px 0 50px rgba(13, 44, 36, 0.15);
+  }
+
+  .top-floating-capsule {
+    top: 10px;
+    left: 10px !important; /* Ignore sidebar alignment margin on mobile */
+    right: 10px;
+    height: 48px;
+    padding: 0 12px;
+    border-radius: 12px;
+  }
+
+  .mobile-hamburger-btn {
+    display: flex;
+  }
+  
+  .executive-portal-title {
+    font-size: 11px;
+  }
+
+  .capsule-subnav {
+    display: none;
+  }
+  
+  .profile-text-dark {
+    display: none;
+  }
+
+  .grand-workspace {
+    padding: 72px 12px 24px 12px;
+    margin-left: 0;
+    width: 100% !important;
+  }
+}

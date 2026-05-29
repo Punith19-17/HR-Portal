@@ -1,0 +1,685 @@
+/* World-Class Glassmorphic Executive Dashboard Stylesheet */
+
+:root {
+  --aa-primary-dark: #0c1a16;       /* Corporate deep slate */
+  --aa-primary-teal: #0b684c;       /* Classical brand green */
+  --aa-teal-accent: #10b981;        /* Glowing active mint */
+  --aa-gold: #c58f47;               /* Brand champagne gold */
+  --aa-gold-light: rgba(197, 143, 71, 0.08);
+  --aa-orange: #ef4444;             /* cyber red alert */
+  
+  --aa-success: #10b981;
+  --aa-success-bg: rgba(16, 185, 129, 0.08);
+  --aa-border: rgba(197, 143, 71, 0.25); /* Thin luxury borders */
+  --aa-card-glass: rgba(255, 255, 255, 0.75); /* Translucent white glass */
+  
+  --aa-text: #0c1a16;
+  --aa-text-muted: #5c706b;         /* Muted gray text */
+}
+
+.world-class-dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+/* ==========================================================================
+   1. HERO ANALYTICS WELCOME CARD (Top, Full-Width)
+   ========================================================================== */
+
+.executive-hero-banner {
+  position: relative;
+  background: linear-gradient(135deg, #168a68 0%, #0b684c 50%, #054532 100%);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(22, 138, 104, 0.3);
+  border-radius: 24px;
+  padding: 32px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(11, 104, 76, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 24px;
+  box-sizing: border-box;
+}
+
+.hero-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+  pointer-events: none;
+}
+
+.hero-content-frame {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 300px;
+  position: relative;
+  z-index: 5;
+}
+
+.hero-meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--aa-gold);
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 8px;
+  align-self: flex-start;
+  margin-bottom: 16px;
+}
+
+.badge-spark-icon {
+  color: var(--aa-gold);
+}
+
+.hero-title {
+  font-size: 28px;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.5px;
+}
+
+.hero-desc {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 0 24px 0;
+}
+
+.hero-floating-capsules-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.glass-metric-capsule {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 10px 18px; /* Slightly more spacious padding */
+  border-radius: 16px; /* Beautifully rounded pills */
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-metric-capsule:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Capsule 1: Shift Status (Luminous Mint-Teal / Silver-Grey Gradient) */
+.glass-metric-capsule.status-capsule.in {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(209, 250, 229, 0.95) 100%) !important;
+  border: 1px solid rgba(16, 185, 129, 0.32) !important;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.06);
+}
+.glass-metric-capsule.status-capsule.in .cap-label {
+  color: #047857 !important;
+}
+.glass-metric-capsule.status-capsule.in .cap-val {
+  color: #064e3b !important;
+}
+
+.glass-metric-capsule.status-capsule.out {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(243, 244, 246, 0.95) 100%) !important;
+  border: 1px solid rgba(156, 163, 175, 0.28) !important;
+}
+.glass-metric-capsule.status-capsule.out .cap-label {
+  color: #4b5563 !important;
+}
+.glass-metric-capsule.status-capsule.out .cap-val {
+  color: #1f2937 !important;
+}
+
+/* Capsule 2: Shift Timer (Luminous Sky Blue / Mint Gradient) */
+.glass-metric-capsule.timer-capsule {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(224, 242, 254, 0.95) 100%) !important;
+  border: 1px solid rgba(56, 189, 248, 0.32) !important;
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.06);
+}
+.glass-metric-capsule.timer-capsule .cap-label {
+  color: #0369a1 !important;
+}
+.glass-metric-capsule.timer-capsule .cap-val {
+  color: #0c4a6e !important;
+}
+.glass-metric-capsule.timer-capsule .cap-icon-gold {
+  color: #0284c7 !important; /* Luminous sky blue clock! */
+}
+
+/* Capsule 3: Compliance Ratio (Luminous Gold / Amber Gradient) */
+.glass-metric-capsule.compliance-capsule {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(254, 243, 199, 0.95) 100%) !important;
+  border: 1px solid rgba(245, 158, 11, 0.32) !important;
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.06);
+}
+.glass-metric-capsule.compliance-capsule .cap-label {
+  color: #b45309 !important;
+}
+.glass-metric-capsule.compliance-capsule .cap-val {
+  color: #78350f !important;
+}
+.glass-metric-capsule.compliance-capsule .cap-icon-gold {
+  color: #d97706 !important; /* Luminous gold shield! */
+}
+
+.pulsing-bead {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #9ca3af;
+}
+
+.pulsing-bead.active {
+  background: var(--aa-teal-accent);
+  box-shadow: 0 0 10px var(--aa-teal-accent);
+  animation: pulse-bead 2s infinite;
+}
+
+.cap-icon-gold {
+  color: var(--aa-gold);
+  transition: transform 0.3s ease;
+}
+.glass-metric-capsule:hover .cap-icon-gold {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.capsule-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.cap-label {
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.cap-val {
+  font-size: 12px;
+  font-weight: 800;
+  margin-top: 2px;
+}
+
+.timer-digits {
+  font-family: "Outfit", monospace;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+.hero-action-panel {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 5;
+}
+
+/* Highly Premium Light-Gradient Shift Toggle Button */
+.btn-hero-shift-toggle {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #fcd34d 100%);
+  border: 1px solid rgba(197, 143, 71, 0.3);
+  color: #78350f; /* Deep amber contrast color */
+  padding: 14px 28px;
+  font-size: 13px;
+  font-weight: 900;
+  border-radius: 16px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 24px rgba(197, 143, 71, 0.15);
+}
+
+.btn-hero-shift-toggle:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(197, 143, 71, 0.3);
+  background: linear-gradient(135deg, #fffbeb 0%, #fde68a 50%, #fbbf24 100%);
+}
+
+.btn-hero-shift-toggle.logging {
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 50%, #fca5a5 100%) !important;
+  border: 1px solid rgba(239, 68, 68, 0.35) !important;
+  color: #991b1b !important;
+  box-shadow: 0 8px 24px rgba(239, 68, 68, 0.1);
+}
+
+.btn-hero-shift-toggle.logging:hover {
+  background: linear-gradient(135deg, #fef2f2 0%, #fca5a5 50%, #f87171 100%) !important;
+  color: #7f1d1d !important;
+  box-shadow: 0 12px 30px rgba(239, 68, 68, 0.22) !important;
+}
+
+/* ==========================================================================
+   2. MAIN 2-COLUMN OPERATIONS GRID
+   ========================================================================== */
+
+.executive-dashboard-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.grid-primary-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.grid-side-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.premium-glass-card {
+  background: var(--aa-card-glass);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid var(--aa-border);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 16px 40px rgba(13, 44, 36, 0.03);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-sizing: border-box;
+}
+
+.premium-glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(13, 44, 36, 0.05);
+}
+
+.card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.card-header-row h3 {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--aa-primary-dark);
+  margin: 0;
+}
+
+.card-subtitle {
+  font-size: 11px;
+  color: var(--aa-text-muted);
+  margin: 2px 0 0 0;
+}
+
+.compliance-ratio-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--aa-gold);
+  background: rgba(197, 143, 71, 0.12);
+  border: 1px solid rgba(197, 143, 71, 0.25);
+  padding: 4px 12px;
+  border-radius: 10px;
+}
+
+/* Filings entries list */
+.filings-ledger-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.filing-ledger-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(197, 143, 71, 0.15);
+  border-radius: 16px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+}
+
+.filing-ledger-row:hover {
+  border-color: rgba(16, 185, 129, 0.25);
+  background: rgba(16, 185, 129, 0.02);
+  transform: translateX(4px);
+}
+
+.row-brand-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+}
+
+.brand-dot-marker {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--aa-gold);
+  flex-shrink: 0;
+}
+
+.row-text-info h4 {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--aa-primary-dark);
+  margin: 0;
+}
+
+.row-text-info p {
+  font-size: 11px;
+  color: var(--aa-text-muted);
+  margin: 2px 0 0 0;
+}
+
+.row-brand-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.row-progress-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 120px;
+  flex-shrink: 0;
+}
+
+.progress-value-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--aa-text-muted);
+}
+
+.progress-track-bar {
+  height: 4px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--aa-gold) 0%, var(--aa-primary-teal) 100%);
+  border-radius: 2px;
+}
+
+.status-chip {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 8px;
+  text-align: center;
+  min-width: 80px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.status-chip.active {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--aa-primary-teal);
+}
+
+.status-chip.in-progress {
+  background: rgba(197, 143, 71, 0.12);
+  color: var(--aa-gold);
+}
+
+.status-chip.pending {
+  background: rgba(0, 0, 0, 0.04);
+  color: #5c6e6a;
+}
+
+.view-audit-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--aa-gold);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.view-audit-link:hover {
+  color: var(--aa-primary-teal);
+  transform: translateX(2px);
+}
+
+/* Side Column widgets */
+.side-badge {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.side-badge.orange {
+  background: rgba(239, 68, 68, 0.08);
+  color: #ef4444;
+}
+
+.side-badge.green {
+  background: rgba(16, 185, 129, 0.08);
+  color: var(--aa-primary-teal);
+}
+
+/* 1. Memorandums card */
+.bulletin-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bulletin-item {
+  display: flex;
+  gap: 12px;
+}
+
+.item-icon-wrapper {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.item-icon-wrapper.red {
+  background: rgba(239, 68, 68, 0.08);
+  color: #ef4444;
+}
+
+.item-icon-wrapper.gold {
+  background: var(--aa-gold-light);
+  color: var(--aa-gold);
+}
+
+.item-details h4 {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--aa-primary-dark);
+  margin: 0;
+}
+
+.item-details p {
+  font-size: 11px;
+  color: var(--aa-text-muted);
+  margin: 2px 0 4px 0;
+  line-height: 1.45;
+}
+
+.item-details .meta {
+  font-size: 9px;
+  color: #92a5a0;
+}
+
+/* 2. Active Consultants card */
+.consultants-vertical-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.consultant-item-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.consultant-item-row:hover {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.c-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.03);
+  color: var(--aa-primary-teal);
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.c-avatar.me {
+  background: var(--aa-gold-light);
+  color: var(--aa-gold);
+  border-color: var(--aa-gold);
+}
+
+.c-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.c-info .name {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--aa-primary-dark);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.me-chip {
+  font-size: 8px;
+  font-weight: 600;
+  color: var(--aa-gold);
+  background: rgba(197, 143, 71, 0.12);
+  padding: 0 4px;
+  border-radius: 3px;
+}
+
+.c-info .role {
+  font-size: 9px;
+  color: var(--aa-text-muted);
+}
+
+.status-indicator-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #92a5a0;
+}
+
+.status-indicator-dot.online {
+  background: var(--aa-teal-accent);
+  box-shadow: 0 0 6px var(--aa-teal-accent);
+}
+
+/* ==========================================================================
+   ANIMATIONS & RESPONSIVE
+   ========================================================================== */
+
+@keyframes pulse-bead {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+@media (max-width: 1200px) {
+  .filing-ledger-row {
+    flex-wrap: wrap;
+  }
+  .row-brand-right {
+    width: 100%;
+    margin-top: 4px;
+    justify-content: flex-start;
+  }
+  .row-progress-block {
+    flex: 1;
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 992px) {
+  .executive-dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .executive-hero-banner {
+    padding: 20px;
+  }
+  .hero-title {
+    font-size: 22px;
+  }
+  .hero-floating-capsules-row {
+    width: 100%;
+  }
+  .glass-metric-capsule {
+    width: 100%;
+    justify-content: center;
+  }
+  .filing-ledger-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 16px;
+  }
+  .row-brand-right {
+    margin-top: 0;
+  }
+  .row-progress-block {
+    width: 100%;
+  }
+}
+
